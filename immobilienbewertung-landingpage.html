@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belur Immobilien — Kostenlose Immobilienbewertung</title>
+<meta name="description" content="Erfahren Sie kostenlos und unverbindlich, was Ihre Immobilie heute wert ist. Persönliche Marktwertanalyse von Belur Immobilien.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --primary: #1c2b3a;
+    --primary-light: #34495d;
+    --accent: #5b7d96;
+    --accent-light: #8fa9bb;
+    --bg-light: #f4f6f8;
+    --text-dark: #1f262d;
+    --text-muted: #62707c;
+    --white: #ffffff;
+    --border: #dde3e8;
+    --radius: 10px;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background: var(--white);
+  }
+  h1, h2, h3, h4, .logo {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  header {
+    background: var(--white);
+    color: var(--primary);
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; }
+  .logo-link { display: flex; align-items: center; text-decoration: none; }
+  .logo-img { height: 64px; width: auto; display: block; }
+  .header-phone { font-size: 14px; color: var(--text-muted); }
+  .header-phone a { color: var(--primary); text-decoration: none; font-weight: 600; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(160deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: var(--white);
+    padding: 72px 0 88px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .hero h1 {
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    color: var(--accent-light);
+    font-style: normal;
+  }
+  .hero p.lead {
+    font-size: 17px;
+    opacity: 0.92;
+    margin-bottom: 28px;
+    max-width: 480px;
+  }
+  .trust-row {
+    display: flex;
+    gap: 28px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    opacity: 0.95;
+  }
+  .trust-item svg { flex-shrink: 0; }
+
+  /* Form card */
+  .form-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+    color: var(--text-dark);
+  }
+  .form-card h2 {
+    font-size: 21px;
+    margin-bottom: 6px;
+    color: var(--primary);
+  }
+  .form-card .sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 22px;
+  }
+  .form-step { display: none; }
+  .form-step.active { display: block; }
+  .field-group { margin-bottom: 14px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+  }
+  input, select {
+    width: 100%;
+    padding: 11px 13px;
+    font-size: 14px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: var(--bg-light);
+    font-family: inherit;
+    color: var(--text-dark);
+  }
+  input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: var(--white);
+  }
+  .option-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .option-btn {
+    padding: 13px 10px;
+    text-align: center;
+    border: 1.5px solid var(--border);
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+    cursor: pointer;
+    background: var(--bg-light);
+    transition: all 0.15s;
+  }
+  .option-btn:hover { border-color: var(--primary-light); }
+  .option-btn.selected {
+    border-color: var(--primary);
+    background: var(--primary);
+    color: var(--white);
+  }
+  .btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.15s;
+  }
+  .btn-primary:hover { background: var(--primary-light); }
+  .btn-secondary {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+  .step-progress {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+  .step-dot {
+    flex: 1;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--border);
+  }
+  .step-dot.active { background: var(--accent); }
+  .step-dot.done { background: var(--primary-light); }
+  .privacy-note {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 14px;
+    line-height: 1.5;
+  }
+  .privacy-note a { color: var(--primary); }
+  .success-box { text-align: center; padding: 20px 0; }
+  .success-box .icon {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--bg-light);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+  }
+  .success-box h3 { font-size: 19px; color: var(--primary); margin-bottom: 8px; }
+  .success-box p { font-size: 14px; color: var(--text-muted); }
+
+  /* Benefits section */
+  .benefits {
+    padding: 72px 0;
+    background: var(--white);
+  }
+  .section-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--primary);
+    margin-bottom: 12px;
+  }
+  .section-sub {
+    text-align: center;
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 560px;
+    margin: 0 auto 48px;
+  }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .benefit-card { text-align: center; padding: 0 12px; }
+  .benefit-icon {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--bg-light);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+  }
+  .benefit-card h3 { font-size: 16px; margin-bottom: 8px; color: var(--text-dark); }
+  .benefit-card p { font-size: 13.5px; color: var(--text-muted); }
+
+  /* Process */
+  .process {
+    background: var(--bg-light);
+    padding: 72px 0;
+  }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+  }
+  .process-step { text-align: center; position: relative; }
+  .process-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600; font-size: 16px;
+    margin: 0 auto 14px;
+  }
+  .process-step h4 { font-size: 14.5px; margin-bottom: 6px; }
+  .process-step p { font-size: 12.5px; color: var(--text-muted); }
+
+  /* Testimonial */
+  .testimonial-section { padding: 64px 0; background: var(--white); }
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .testimonial-card {
+    background: var(--bg-light);
+    border-radius: var(--radius);
+    padding: 24px;
+  }
+  .stars { color: var(--accent); font-size: 14px; margin-bottom: 10px; }
+  .testimonial-card p.quote { font-size: 14px; color: var(--text-dark); margin-bottom: 14px; font-style: italic; }
+  .testimonial-author { font-size: 13px; font-weight: 600; color: var(--text-muted); }
+
+  /* Final CTA */
+  .final-cta {
+    background: var(--primary);
+    color: var(--white);
+    text-align: center;
+    padding: 56px 0;
+  }
+  .final-cta h2 { font-size: 28px; font-weight: 400; margin-bottom: 14px; }
+  .final-cta p { opacity: 0.9; margin-bottom: 24px; }
+  .cta-button {
+    display: inline-block;
+    background: var(--white);
+    color: var(--primary);
+    padding: 14px 36px;
+    border-radius: 7px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+  }
+
+  footer {
+    background: #14202c;
+    color: rgba(255,255,255,0.7);
+    padding: 28px 0;
+    font-size: 12.5px;
+    text-align: center;
+  }
+  footer a { color: rgba(255,255,255,0.85); }
+
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 28px; }
+    .benefit-grid, .testimonial-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+    .field-row { grid-template-columns: 1fr; }
+    .header-phone { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a href="#" class="logo-link"><img src="assets/belur-logo.jpeg" alt="Belur Immobilien" class="logo-img"></a>
+    <div class="header-phone">Persönliche Beratung: <a href="tel:+4900000000000">0123 / 456 789</a></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>Was ist Ihre Immobilie <em>wirklich</em> wert?</h1>
+      <p class="lead">Erhalten Sie innerhalb von 24 Stunden eine kostenlose, unverbindliche Marktwertanalyse von einem erfahrenen Makler aus Ihrer Region — ganz ohne Verpflichtung.</p>
+      <div class="trust-row">
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8fa9bb" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          100% kostenlos
+        </div>
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8fa9bb" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          Unverbindlich
+        </div>
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8fa9bb" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          Antwort in 24h
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <div class="step-progress" id="stepProgress">
+        <div class="step-dot active" data-step="0"></div>
+        <div class="step-dot" data-step="1"></div>
+        <div class="step-dot" data-step="2"></div>
+      </div>
+
+      <form id="bewertungForm">
+        <div class="form-step active" data-step="0">
+          <h2>Welche Art von Immobilie?</h2>
+          <p class="sub">Schritt 1 von 3 — dauert nur 30 Sekunden</p>
+          <div class="option-grid" id="objektGrid">
+            <div class="option-btn" data-value="Einfamilienhaus">Einfamilienhaus</div>
+            <div class="option-btn" data-value="Wohnung">Wohnung</div>
+            <div class="option-btn" data-value="Mehrfamilienhaus">Mehrfamilienhaus</div>
+            <div class="option-btn" data-value="Grundstück">Grundstück</div>
+          </div>
+          <button type="button" class="btn-primary" id="toStep1" disabled>Weiter</button>
+        </div>
+
+        <div class="form-step" data-step="1">
+          <h2>Angaben zur Immobilie</h2>
+          <p class="sub">Schritt 2 von 3</p>
+          <div class="field-row">
+            <div class="field-group">
+              <label for="plz">Postleitzahl</label>
+              <input type="text" id="plz" placeholder="73525" inputmode="numeric" required>
+            </div>
+            <div class="field-group">
+              <label for="ort">Ort</label>
+              <input type="text" id="ort" placeholder="Schwäb. Gmünd" required>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label for="sqm">Wohnfläche (m²)</label>
+              <input type="number" id="sqm" placeholder="120">
+            </div>
+            <div class="field-group">
+              <label for="timeline">Verkaufszeitpunkt</label>
+              <select id="timeline">
+                <option value="sofort">Sobald wie möglich</option>
+                <option value="kurz">In 3–6 Monaten</option>
+                <option value="mittel">In 6–12 Monaten</option>
+                <option value="offen">Noch unklar</option>
+              </select>
+            </div>
+          </div>
+          <button type="button" class="btn-primary" id="toStep2">Weiter</button>
+          <button type="button" class="btn-secondary" id="backStep1">Zurück</button>
+        </div>
+
+        <div class="form-step" data-step="2">
+          <h2>Wohin dürfen wir die Analyse senden?</h2>
+          <p class="sub">Schritt 3 von 3 — letzter Schritt</p>
+          <div class="field-group">
+            <label for="vorname">Vorname</label>
+            <input type="text" id="vorname" placeholder="Anna" required>
+          </div>
+          <div class="field-group">
+            <label for="nachname">Nachname</label>
+            <input type="text" id="nachname" placeholder="Bauer" required>
+          </div>
+          <div class="field-group">
+            <label for="email">E-Mail-Adresse</label>
+            <input type="email" id="email" placeholder="anna@beispiel.de" required>
+          </div>
+          <div class="field-group">
+            <label for="telefon">Telefon (optional)</label>
+            <input type="tel" id="telefon" placeholder="+49 171 2345678">
+          </div>
+          <button type="submit" class="btn-primary">Kostenlose Bewertung anfragen</button>
+          <button type="button" class="btn-secondary" id="backStep2">Zurück</button>
+          <p class="privacy-note">
+            Mit dem Absenden stimmen Sie zu, dass wir Sie zur Immobilienbewertung per E-Mail oder Telefon kontaktieren dürfen. Ihre Daten werden gemäß unserer <a href="#">Datenschutzerklärung</a> verarbeitet und nicht an Dritte weitergegeben. Eine Abmeldung ist jederzeit möglich.
+          </p>
+        </div>
+
+        <div class="form-step" data-step="success">
+          <div class="success-box">
+            <div class="icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1c2b3a" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <h3>Vielen Dank für Ihre Anfrage!</h3>
+            <p>Wir melden uns innerhalb von 24 Stunden mit Ihrer persönlichen Marktwertanalyse bei Ihnen.</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="container">
+    <h2 class="section-title">Warum eine kostenlose Bewertung sinnvoll ist</h2>
+    <p class="section-sub">Egal ob Sie bald verkaufen möchten oder einfach nur wissen wollen, was Ihre Immobilie wert ist — die Analyse ist für Sie komplett unverbindlich.</p>
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1c2b3a" stroke-width="1.8"><path d="M3 21h18M5 21V7l8-4 8 4v14M9 21v-6h6v6"/></svg>
+        </div>
+        <h3>Lokale Marktkenntnis</h3>
+        <p>Wir kennen die aktuellen Verkaufspreise in Ihrer Region genau — keine generische Online-Schätzung.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1c2b3a" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3>Schnelle Rückmeldung</h3>
+        <p>Sie erhalten Ihre persönliche Einschätzung innerhalb von 24 Stunden — ohne lange Wartezeit.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1c2b3a" stroke-width="1.8"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+        </div>
+        <h3>Komplett unverbindlich</h3>
+        <p>Keine versteckten Kosten, kein Vertragszwang. Sie entscheiden, wie es weitergeht.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="container">
+    <h2 class="section-title">So einfach geht's</h2>
+    <p class="section-sub">Vom Formular bis zur fertigen Analyse — in vier Schritten</p>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-num">1</div>
+        <h4>Formular ausfüllen</h4>
+        <p>Wenige Angaben zu Ihrer Immobilie — dauert weniger als eine Minute.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">2</div>
+        <h4>Analyse erstellen</h4>
+        <p>Wir vergleichen aktuelle Verkaufsdaten ähnlicher Objekte in Ihrer Region.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">3</div>
+        <h4>Ergebnis erhalten</h4>
+        <p>Sie bekommen Ihre persönliche Einschätzung per E-Mail oder Telefon.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">4</div>
+        <h4>Sie entscheiden</h4>
+        <p>Ganz in Ruhe — ob und wann Sie tatsächlich verkaufen möchten.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial-section">
+  <div class="container">
+    <h2 class="section-title">Was Kunden sagen</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Die Bewertung war überraschend genau und die Beratung sehr persönlich. Hat mir die Entscheidung deutlich leichter gemacht.</p>
+        <div class="testimonial-author">— M. Schneider, Schwäbisch Gmünd</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Schnelle Rückmeldung, keine aufdringliche Verkaufstaktik. Genau das, was ich mir erhofft hatte.</p>
+        <div class="testimonial-author">— T. Weber, Aalen</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <h2>Bereit für Ihre kostenlose Bewertung?</h2>
+    <p>Es dauert nur eine Minute — und Sie wissen, woran Sie sind.</p>
+    <button class="cta-button" onclick="document.getElementById('bewertungForm').scrollIntoView({behavior:'smooth'}); window.scrollTo({top:0,behavior:'smooth'});">Jetzt kostenlos bewerten lassen</button>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Belur Immobilien. Alle Rechte vorbehalten. &nbsp;|&nbsp; <a href="#">Impressum</a> &nbsp;|&nbsp; <a href="#">Datenschutz</a></p>
+  </div>
+</footer>
+
+<script>
+let currentStep = 0;
+let selectedObjekt = null;
+
+function showStep(step) {
+  document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+  document.querySelector('.form-step[data-step="' + step + '"]').classList.add('active');
+  document.querySelectorAll('.step-dot').forEach(dot => {
+    const dotStep = parseInt(dot.dataset.step);
+    dot.classList.remove('active', 'done');
+    if (dotStep === step) dot.classList.add('active');
+    else if (dotStep < step) dot.classList.add('done');
+  });
+}
+
+document.querySelectorAll('#objektGrid .option-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#objektGrid .option-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    selectedObjekt = btn.dataset.value;
+    document.getElementById('toStep1').disabled = false;
+  });
+});
+
+document.getElementById('toStep1').addEventListener('click', () => {
+  currentStep = 1;
+  showStep(1);
+});
+
+document.getElementById('backStep1').addEventListener('click', () => {
+  currentStep = 0;
+  showStep(0);
+});
+
+document.getElementById('toStep2').addEventListener('click', () => {
+  const plz = document.getElementById('plz').value.trim();
+  const ort = document.getElementById('ort').value.trim();
+  if (!plz || !ort) {
+    alert('Bitte Postleitzahl und Ort angeben.');
+    return;
+  }
+  currentStep = 2;
+  showStep(2);
+});
+
+document.getElementById('backStep2').addEventListener('click', () => {
+  currentStep = 1;
+  showStep(1);
+});
+
+document.getElementById('bewertungForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const vorname = document.getElementById('vorname').value.trim();
+  const nachname = document.getElementById('nachname').value.trim();
+  const email = document.getElementById('email').value.trim();
+
+  if (!vorname || !nachname || !email) {
+    alert('Bitte alle Pflichtfelder ausfüllen.');
+    return;
+  }
+
+  const leadData = {
+    objektart: selectedObjekt,
+    plz: document.getElementById('plz').value.trim(),
+    ort: document.getElementById('ort').value.trim(),
+    wohnflaeche: document.getElementById('sqm').value,
+    timeline: document.getElementById('timeline').value,
+    vorname: vorname,
+    nachname: nachname,
+    email: email,
+    telefon: document.getElementById('telefon').value.trim(),
+    quelle: 'Landingpage',
+    datum: new Date().toISOString()
+  };
+
+  // HIER integrieren: Weiterleitung an Make.com Webhook, Google Sheets oder eigenes Backend
+  // Beispiel mit Make.com Webhook (URL eintragen, sobald Scenario erstellt ist):
+  //
+  // fetch('https://hook.eu1.make.com/DEINE-WEBHOOK-ID', {
+  //   method: 'POST',
+  //   headers: { 'Content-Type': 'application/json' },
+  //   body: JSON.stringify(leadData)
+  // });
+
+  console.log('Lead erfasst:', leadData);
+
+  showStep('success');
+});
+</script>
+
+</body>
+</html>
