@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontakt – Belur Immobilien</title>
+  <meta name="description" content="Kontaktieren Sie Belur Immobilien: ☎ 0176 84143342. Antwort innerhalb von 24 Stunden. Kostenlose Marktwertermittlung, Verkauf & Kauf in Schwäbisch Gmünd.">
+  <link rel="canonical" href="https://belur-immobilien.de/belur-kontakt.html">
+  <meta property="og:title" content="Kontakt – Belur Immobilien | Kostenlose & unverbindliche Anfrage">
+  <meta property="og:description" content="Kontaktieren Sie Belur Immobilien: ☎ 0176 84143342. Antwort innerhalb von 24 Stunden. Kostenlose Marktwertermittlung, Verkauf & Kauf in Schwäbisch Gmünd.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://belur-immobilien.de/belur-kontakt.html">
+  <meta property="og:locale" content="de_DE">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%231A302C%22/><text x=%2250%22 y=%2272%22 font-size=%2264%22 font-family=%22Georgia,serif%22 fill=%22%23B08D57%22 text-anchor=%22middle%22>B</text></svg>">
+  <title>Kontakt – Belur Immobilien | Kostenlose & unverbindliche Anfrage</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200&display=swap" rel="stylesheet">
   <style>
@@ -492,6 +500,66 @@
     }
     .panel-wordmark .wm-accent { color: var(--brass); opacity: .7; }
 
+  
+    /* ── TERMINBUCHUNG ── */
+    .booking {
+      background: var(--white);
+      padding: 6rem 5vw;
+      text-align: center;
+    }
+    .booking-eyebrow {
+      font-size: .62rem; font-weight: 600;
+      letter-spacing: .25em; text-transform: uppercase;
+      color: var(--brass); margin-bottom: 1.25rem;
+    }
+    .booking-title {
+      font-family: 'Cormorant SC', serif;
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 400; letter-spacing: .05em;
+      color: var(--ink); margin-bottom: 1rem;
+    }
+    .booking-sub {
+      font-size: .9rem; font-weight: 300;
+      color: var(--mid); line-height: 1.75;
+      max-width: 480px; margin: 0 auto 2.5rem;
+    }
+    .cal-placeholder {
+      max-width: 720px;
+      margin: 0 auto;
+      border: 1px solid var(--ivory2);
+      background: var(--ivory);
+      padding: 4rem 2rem;
+    }
+    .cal-placeholder svg {
+      width: 44px; height: 44px;
+      color: var(--brass);
+      margin: 0 auto 1.5rem;
+      display: block;
+    }
+    .cal-load-btn {
+      font-family: 'Raleway', sans-serif;
+      font-size: .7rem; font-weight: 600;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--white);
+      background: var(--forest);
+      border: 1px solid var(--forest);
+      padding: 1.125rem 2.75rem;
+      cursor: pointer;
+      transition: background .25s, color .25s;
+    }
+    .cal-load-btn:hover { background: transparent; color: var(--forest); }
+    .cal-note {
+      font-size: .7rem; color: #AAA;
+      margin-top: 1.25rem; line-height: 1.6;
+    }
+    .cal-note a { color: var(--brass); text-decoration: none; }
+    #calendlyWidget {
+      max-width: 760px;
+      margin: 0 auto;
+      display: none;
+      min-height: 700px;
+    }
+
   </style>
 </head>
 <body>
@@ -600,28 +668,28 @@
       <div class="f-row">
         <div class="f-group">
           <label>Vorname</label>
-          <input type="text" id="fFirst" placeholder="Max">
+          <input type="text" id="fFirst" name="vorname" autocomplete="given-name" placeholder="Max" required>
         </div>
         <div class="f-group">
           <label>Nachname</label>
-          <input type="text" placeholder="Mustermann">
+          <input type="text" id="fLast" name="nachname" autocomplete="family-name" placeholder="Mustermann">
         </div>
       </div>
 
       <div class="f-row">
         <div class="f-group">
           <label>E-Mail-Adresse</label>
-          <input type="email" id="fEmail" placeholder="max@beispiel.de">
+          <input type="email" id="fEmail" name="email" autocomplete="email" placeholder="max@beispiel.de" required>
         </div>
         <div class="f-group">
           <label>Telefon</label>
-          <input type="tel" placeholder="+49 ···">
+          <input type="tel" id="fPhone" name="telefon" autocomplete="tel" placeholder="+49 ···">
         </div>
       </div>
 
       <div class="f-group">
         <label>Mein Anliegen</label>
-        <select>
+        <select id="fConcern" name="anliegen">
           <option value="" disabled selected>Bitte wählen …</option>
           <option>Immobilie verkaufen</option>
           <option>Immobilie kaufen</option>
@@ -642,7 +710,7 @@
 
       <div class="f-group">
         <label>Ihre Nachricht (optional)</label>
-        <textarea placeholder="Beschreiben Sie kurz Ihr Anliegen …"></textarea>
+        <textarea id="fMsg" name="nachricht" placeholder="Beschreiben Sie kurz Ihr Anliegen …"></textarea>
       </div>
 
       <button class="f-submit" onclick="submitForm(event)">
@@ -664,6 +732,7 @@
       </div>
       <h2>Anfrage gesendet!</h2>
       <p>Vielen Dank, {fFirst}. Wir melden uns innerhalb von 24 Stunden persönlich bei Ihnen.</p>
+      <a href="#termin" onclick="document.getElementById('fSuccess').style.display='none'; document.getElementById('formWrap').style.display='none'; loadCalendly(); document.getElementById('termin').scrollIntoView();" class="back-link" style="margin-right:2rem;">Direkt Termin buchen →</a>
       <a href="belur-immobilien.html" class="back-link">
         ← Zurück zur Website
       </a>
@@ -678,8 +747,8 @@
     btn.classList.add('active');
   }
 
-  // Form submit
-  function submitForm(e) {
+  // Form submit — sends via FormSubmit.co to info@belur-immobilien.de
+  async function submitForm(e) {
     e.preventDefault();
     const name  = document.getElementById('fFirst').value.trim();
     const email = document.getElementById('fEmail').value.trim();
@@ -687,11 +756,79 @@
       alert('Bitte geben Sie mindestens Ihren Vornamen und Ihre E-Mail-Adresse an.');
       return;
     }
+
+    const btn = document.querySelector('.f-submit');
+    btn.disabled = true;
+    btn.textContent = 'Wird gesendet …';
+
+    const urgency = document.querySelector('.urg-btn.active')?.textContent || '';
+
+    const payload = {
+      Vorname:   name,
+      Nachname:  document.getElementById('fLast').value.trim(),
+      Email:     email,
+      Telefon:   document.getElementById('fPhone').value.trim(),
+      Anliegen:  document.getElementById('fConcern').value,
+      Dringlichkeit: urgency,
+      Nachricht: document.getElementById('fMsg').value.trim(),
+      _subject:  'Neue Anfrage über belur-immobilien.de',
+      _template: 'table',
+      _captcha:  'false'
+    };
+
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/info@belur-immobilien.de', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error('send failed');
+    } catch (err) {
+      const body = encodeURIComponent(
+        `Vorname: ${payload.Vorname}\nNachname: ${payload.Nachname}\nTelefon: ${payload.Telefon}\nAnliegen: ${payload.Anliegen}\nDringlichkeit: ${payload.Dringlichkeit}\n\n${payload.Nachricht}`
+      );
+      window.location.href = `mailto:info@belur-immobilien.de?subject=Anfrage über Website&body=${body}`;
+    }
+
     document.getElementById('formWrap').style.display = 'none';
     const successEl = document.getElementById('fSuccess');
     successEl.querySelector('p').innerHTML =
       `Vielen Dank, <strong>${name}</strong>. Wir melden uns innerhalb von 24 Stunden persönlich bei Ihnen.`;
     successEl.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+<!-- TERMINBUCHUNG -->
+<section class="booking" id="termin">
+  <p class="booking-eyebrow">Terminbuchung</p>
+  <h2 class="booking-title">Oder buchen Sie direkt<br>Ihr kostenloses Erstgespräch</h2>
+  <p class="booking-sub">Wählen Sie einfach einen freien Termin in unserem Kalender – Sie erhalten sofort eine Bestätigung per E-Mail.</p>
+
+  <div class="cal-placeholder" id="calPlaceholder">
+    <svg fill="none" stroke="currentColor" stroke-width="1.25" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
+    </svg>
+    <button class="cal-load-btn" onclick="loadCalendly()">Kalender anzeigen</button>
+    <p class="cal-note">
+      Beim Laden des Kalenders werden Daten an Calendly LLC (USA) übertragen.<br>
+      Details in unserer <a href="belur-datenschutz.html">Datenschutzerklärung</a>.
+    </p>
+  </div>
+
+  <div id="calendlyWidget"></div>
+</section>
+
+<script>
+  function loadCalendly() {
+    document.getElementById('calPlaceholder').style.display = 'none';
+    const widget = document.getElementById('calendlyWidget');
+    widget.style.display = 'block';
+    widget.innerHTML = '<div class="calendly-inline-widget" data-url="https://calendly.com/ebelur/kontaktformular?hide_gdpr_banner=1&primary_color=b08d57" style="min-width:320px;height:700px;"></div>';
+    const s = document.createElement('script');
+    s.src = 'https://assets.calendly.com/assets/external/widget.js';
+    s.async = true;
+    document.body.appendChild(s);
   }
 </script>
 </body>
