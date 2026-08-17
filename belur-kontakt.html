@@ -13,17 +13,17 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%231A302C%22/><text x=%2250%22 y=%2272%22 font-size=%2264%22 font-family=%22Georgia,serif%22 fill=%22%23B08D57%22 text-anchor=%22middle%22>B</text></svg>">
   <title>Kontakt – Belur Immobilien | Kostenlose & unverbindliche Anfrage</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --ink:     #0C0C0C;
-      --ivory:   #F4F1EA;
-      --ivory2:  #E5E0D6;
-      --brass:   #B08D57;
-      --brass2:  #CBB07A;
-      --forest:  #1A302C;
+      --ink:#ECF1F8;
+      --ivory:#0F1B30;
+      --ivory2:#223250;
+      --brass:   #C4A86B;
+      --brass2:  #D6BE8C;
+      --forest:  #16233A;
       --mid:     #7A7A7A;
       --white:   #FFFFFF;
     }
@@ -32,10 +32,10 @@
     body { min-height: 100%; }
 
     body {
-      font-family: 'Raleway', sans-serif;
+      font-family: 'Jost',sans-serif;
       font-weight: 300;
       color: var(--ink);
-      background: var(--white);
+      background:rgba(16,29,51,.66);
       -webkit-font-smoothing: antialiased;
       min-height: 100vh;
       display: flex;
@@ -51,9 +51,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(244,241,234,.9);
+      background: rgba(16,29,51,.84);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(176,141,87,.18);
+      border-bottom: 1px solid rgba(196,168,107,.18);
     }
 
     .h-logo {
@@ -88,7 +88,7 @@
 
     /* ── LEFT: DARK BRAND PANEL ── */
     .panel-left {
-      background: rgba(26,48,44,.74);
+      background: rgba(22,35,58,.74);
       position: relative;
       overflow: hidden;
       display: flex;
@@ -105,10 +105,10 @@
       position: absolute;
       bottom: -2rem;
       left: -1rem;
-      font-family: 'Cormorant SC', serif;
+      font-family: 'Marcellus',serif;
       font-size: 14vw;
       font-weight: 600;
-      color: rgba(176,141,87,.05);
+      color: rgba(196,168,107,.05);
       line-height: 1;
       letter-spacing: .04em;
       user-select: none;
@@ -140,7 +140,7 @@
     }
 
     .panel-heading {
-      font-family: 'Cormorant SC', serif;
+      font-family: 'Marcellus',serif;
       font-size: clamp(2.25rem, 3.5vw, 3.5rem);
       font-weight: 300;
       letter-spacing: .05em;
@@ -170,16 +170,16 @@
       align-items: center;
       gap: 1.25rem;
       padding: 1.375rem 0;
-      border-top: 1px solid rgba(176,141,87,.15);
+      border-top: 1px solid rgba(196,168,107,.15);
       text-decoration: none;
       transition: padding-left .25s;
     }
-    .contact-row:last-child { border-bottom: 1px solid rgba(176,141,87,.15); }
+    .contact-row:last-child { border-bottom: 1px solid rgba(196,168,107,.15); }
     .contact-row:hover { padding-left: .75rem; }
 
     .cr-icon {
       width: 38px; height: 38px;
-      border: 1px solid rgba(176,141,87,.3);
+      border: 1px solid rgba(196,168,107,.3);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
@@ -206,12 +206,12 @@
     .panel-promise {
       margin-top: 4rem;
       padding: 1.5rem;
-      border: 1px solid rgba(176,141,87,.2);
+      border: 1px solid rgba(196,168,107,.2);
       border-left: 3px solid var(--brass);
-      background: rgba(176,141,87,.06);
+      background: rgba(196,168,107,.06);
     }
     .pp-text {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Marcellus',serif;
       font-style: italic;
       font-size: 1.0625rem;
       color: rgba(255,255,255,.65);
@@ -227,7 +227,7 @@
 
     /* ── RIGHT: FORM PANEL ── */
     .panel-right {
-      background: rgba(244,241,234,.9);
+      background: rgba(16,29,51,.84);
       padding: 5rem 5vw;
       display: flex;
       flex-direction: column;
@@ -244,7 +244,7 @@
     }
 
     .form-title {
-      font-family: 'Cormorant SC', serif;
+      font-family: 'Marcellus',serif;
       font-size: clamp(1.75rem, 2.5vw, 2.5rem);
       font-weight: 400;
       letter-spacing: .05em;
@@ -278,8 +278,8 @@
       font-weight: 500;
       letter-spacing: .12em;
       text-transform: uppercase;
-      color: var(--forest);
-      background: rgba(26,48,44,.07);
+      color:#D6BE8C;
+      background: rgba(22,35,58,.07);
       padding: .4rem .875rem;
       border-radius: 999px;
     }
@@ -309,7 +309,7 @@
       color: var(--ink);
       padding: .625rem 0;
       font-size: 1rem;
-      font-family: 'Raleway', sans-serif;
+      font-family: 'Jost',sans-serif;
       font-weight: 300;
       outline: none;
       border-radius: 0;
@@ -325,7 +325,7 @@
     .f-group select:focus,
     .f-group textarea:focus { border-bottom-color: var(--brass); }
     .f-group select { cursor: pointer; }
-    .f-group select option { background: var(--white); color: var(--ink); }
+    .f-group select option { background:rgba(16,29,51,.66); color: var(--ink); }
     .f-group textarea { resize: none; min-height: 90px; }
 
     /* Urgency selector */
@@ -346,17 +346,17 @@
       padding: .5rem 1rem;
       cursor: pointer;
       transition: border-color .2s, color .2s, background .2s;
-      font-family: 'Raleway', sans-serif;
+      font-family: 'Jost',sans-serif;
       border-radius: 2px;
     }
     .urg-btn.active, .urg-btn:hover {
       border-color: var(--brass);
       color: var(--brass);
-      background: rgba(176,141,87,.06);
+      background: rgba(196,168,107,.06);
     }
 
     .f-submit {
-      font-family: 'Raleway', sans-serif;
+      font-family: 'Jost',sans-serif;
       font-size: .7rem;
       font-weight: 600;
       letter-spacing: .22em;
@@ -372,7 +372,7 @@
     }
     .f-submit:hover {
       background: transparent;
-      color: var(--forest);
+      color:#D6BE8C;
     }
 
     /* Privacy note */
@@ -393,14 +393,14 @@
     }
     .f-success-icon {
       width: 72px; height: 72px;
-      border: 1px solid rgba(176,141,87,.4);
+      border: 1px solid rgba(196,168,107,.4);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 2rem;
     }
     .f-success-icon svg { width: 36px; height: 36px; color: var(--brass); }
     .f-success h2 {
-      font-family: 'Cormorant SC', serif;
+      font-family: 'Marcellus',serif;
       font-size: 2.25rem;
       font-weight: 400;
       letter-spacing: .06em;
@@ -423,7 +423,7 @@
       font-weight: 600;
       letter-spacing: .18em;
       text-transform: uppercase;
-      color: var(--forest);
+      color:#D6BE8C;
       text-decoration: none;
       border-bottom: 1px solid var(--forest);
       padding-bottom: 2px;
@@ -433,7 +433,7 @@
     @media (max-width: 820px) {
       /* Header scrollt mit statt zu ueberdecken */
       header { position: static; }
-      /* Kein kuenstliches Strecken auf Bildschirmhoehe -> keine leere dunkle Flaeche */
+      /* Kein kuenstliches Strecken auf Bildschirmhoehe -> keine leere dunkle Fläche */
       main {
         grid-template-columns: 1fr;
         min-height: auto;
@@ -460,7 +460,7 @@
   
     /* ── BRAND WORDMARK (text only) ── */
     .nav-wordmark {
-      font-family: 'Cormorant SC', serif;
+      font-family: 'Marcellus',serif;
       font-size: 1.375rem;
       font-weight: 500;
       letter-spacing: .08em;
@@ -473,7 +473,7 @@
     .nav-wordmark .wm-accent { color: var(--brass); }
 
     .h-wordmark {
-      font-family: 'Cormorant SC', serif;
+      font-family: 'Marcellus',serif;
       font-size: 1.375rem;
       font-weight: 500;
       letter-spacing: .08em;
@@ -484,7 +484,7 @@
     .h-wordmark .wm-accent { color: var(--brass); }
 
     .footer-wordmark {
-      font-family: 'Cormorant SC', serif;
+      font-family: 'Marcellus',serif;
       font-size: 1.625rem;
       font-weight: 500;
       letter-spacing: .08em;
@@ -495,7 +495,7 @@
     .footer-wordmark .wm-accent { color: var(--brass); }
 
     .panel-wordmark {
-      font-family: 'Cormorant SC', serif;
+      font-family: 'Marcellus',serif;
       font-size: 1.25rem;
       font-weight: 400;
       letter-spacing: .12em;
@@ -508,7 +508,7 @@
   
     /* ── TERMINBUCHUNG ── */
     .booking {
-      background: rgba(255,255,255,.9);
+      background: rgba(16,29,51,.85);
       padding: 6rem 5vw;
       text-align: center;
     }
@@ -518,7 +518,7 @@
       color: var(--brass); margin-bottom: 1.25rem;
     }
     .booking-title {
-      font-family: 'Cormorant SC', serif;
+      font-family: 'Marcellus',serif;
       font-size: clamp(1.75rem, 3vw, 2.5rem);
       font-weight: 400; letter-spacing: .05em;
       color: var(--ink); margin-bottom: 1rem;
@@ -542,7 +542,7 @@
       display: block;
     }
     .cal-load-btn {
-      font-family: 'Raleway', sans-serif;
+      font-family: 'Jost',sans-serif;
       font-size: .7rem; font-weight: 600;
       letter-spacing: .22em; text-transform: uppercase;
       color: var(--white);
@@ -552,7 +552,7 @@
       cursor: pointer;
       transition: background .25s, color .25s;
     }
-    .cal-load-btn:hover { background: transparent; color: var(--forest); }
+    .cal-load-btn:hover { background: transparent; color:#D6BE8C; }
     .cal-note {
       font-size: .7rem; color: #AAA;
       margin-top: 1.25rem; line-height: 1.6;
@@ -590,6 +590,214 @@
     header, main, .booking, footer { position: relative; z-index: 2; }
 
   </style>
+
+<style id="atmo-neutralize">
+body::before { background: none !important; content: none !important; }
+body::after { background: none !important; }
+</style>
+
+<style id="atmo-style">
+/* ══ EINHEITLICHE ATMOSPHÄRE – fester, überblendender Hintergrund ══ */
+html, body { background: transparent !important; }
+.page-bg { display: none !important; }            /* alte BG-Layer aus */
+.atmo, .atmo * { pointer-events: none; }
+.atmo {
+  position: fixed; inset: 0; z-index: -3;
+}
+.atmo-layer {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0; transition: opacity .7s linear;
+  transform: scale(1.05);
+  will-change: opacity;
+}
+.atmo-veil {
+  position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(11,21,38,.55), transparent 60%),
+    linear-gradient(180deg, rgba(11,21,38,.78), rgba(11,21,38,.86));
+}
+/* Glaskarten: Hintergrund darf dezent durchscheinen */
+.qf, .card, .data-table, .use, .energy-box, .glass-card, .val-card,
+.form-glass, .quote, .step, .prop {
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
+.qf, .card, .data-table, .use, .energy-box {
+  background-color: rgba(16,29,51,.6) !important;
+}
+/* ══ 3D-MOTIV: dezenter rotierender Draht-Würfel (einheitlich) ══ */
+.atmo-cube { position: fixed; right: 30px; bottom: 30px; width: 54px; height: 54px;
+  z-index: 6; perspective: 420px; pointer-events: none; opacity: .42; }
+.atmo-cube .cube { position: absolute; inset: 0; transform-style: preserve-3d;
+  animation: atmoSpin 20s linear infinite; }
+.atmo-cube .face { position: absolute; width: 54px; height: 54px;
+  border: 1px solid #C1A265; }
+.atmo-cube .f1 { transform: rotateY(0deg) translateZ(27px); }
+.atmo-cube .f2 { transform: rotateY(90deg) translateZ(27px); }
+.atmo-cube .f3 { transform: rotateY(180deg) translateZ(27px); }
+.atmo-cube .f4 { transform: rotateY(270deg) translateZ(27px); }
+.atmo-cube .f5 { transform: rotateX(90deg) translateZ(27px); }
+.atmo-cube .f6 { transform: rotateX(-90deg) translateZ(27px); }
+@keyframes atmoSpin { to { transform: rotateX(360deg) rotateY(360deg); } }
+/* Würfel als kleines Gebäude: Fenster + Tür */
+.atmo-cube .face::before{
+  content:''; position:absolute; left:50%; top:18%;
+  width:44%; height:34%; transform:translateX(-50%);
+  border:1px solid #C1A265;
+  background:
+    linear-gradient(#C1A265,#C1A265) 50% 0/1px 100% no-repeat,
+    linear-gradient(#C1A265,#C1A265) 0 50%/100% 1px no-repeat;
+}
+.atmo-cube .f1::after{
+  content:''; position:absolute; left:50%; bottom:-1px;
+  width:28%; height:44%; transform:translateX(-50%);
+  border:1px solid #C1A265; border-bottom:none;
+}
+.atmo-cube .f5::before, .atmo-cube .f6::before{ display:none; }
+
+@media (max-width: 640px){ .atmo-cube { display: none; } }
+@media (prefers-reduced-motion: reduce){
+  .atmo-cube .cube { animation: none; }
+  .atmo-layer { transition: none; }
+}
+</style>
+
+<style id="navy-theme">
+/* ══ EINHEITLICHES PREMIUM-THEME (Navy · Champagner · Marcellus/Jost) ══ */
+body { color:#ECF1F8; }
+::selection { background:#C4A86B; color:#0B1526; }
+/* Gold-Buttons: dunkle Schrift wie auf der Premium-Seite */
+.cta-primary, .cta-btn, .f-send, .filter-btn.active, .val-next, .cal-load {
+  color:#0B1526 !important;
+}
+.cta-primary:hover, .cta-btn:hover, .f-send:hover, .cal-load:hover {
+  color:#D6BE8C !important; background:transparent !important;
+}
+/* Badges/Preise: Navy-Glas + Champagner statt Vollfarbe */
+.card-badge, .gallery-badge {
+  background:rgba(11,21,38,.8) !important; color:#D6BE8C !important;
+  border:1px solid rgba(214,190,140,.35);
+}
+.card-price { background:rgba(11,21,38,.92) !important; color:#D6BE8C !important; }
+/* Formulare dunkel */
+input, select, textarea {
+  background:rgba(255,255,255,.06) !important; color:#ECF1F8 !important;
+  border-color:rgba(255,255,255,.16) !important;
+}
+input::placeholder, textarea::placeholder { color:rgba(255,255,255,.3) !important; }
+select option { background:#0B1526 !important; color:#ECF1F8; }
+/* Filterleiste */
+.filter-btn { color:#9AA5B8; border-color:rgba(255,255,255,.18); background:transparent; }
+.filter-btn:hover { color:#D6BE8C; border-color:#C4A86B; }
+/* Karten-Hover: goldener Rand statt Schatten */
+.card:hover { border-color:rgba(214,190,140,.4) !important; }
+.card, .prop { border:1px solid rgba(255,255,255,.08); }
+/* Trennlinien */
+hr { border-color:rgba(255,255,255,.1); }
+/* Links in Fließtext */
+.content a, .legal-body a { color:#D6BE8C; }
+</style>
+
+<style id="contrast-boost">
+/* ══ LESBARKEIT: heller Text auf dunklem Navy-Theme ══ */
+:root{
+  --tx-main:#F2F6FC;   /* Fließtext            ~15:1 */
+  --tx-soft:#C3CDDD;   /* Sekundärtext         ~9:1  */
+  --tx-faint:#A9B4C6;  /* Labels/Feinheiten    ~7:1  */
+  --gold-hi:#E0C892;   /* Gold für Text        ~10:1 */
+}
+body{ color:var(--tx-main); }
+p, li, td, dd, .content p, .gc-text, .step-text, .use-text,
+.legal-body p, .legal-body li, .data-val, .qf-num{
+  color:var(--tx-main) !important;
+}
+/* Sekundär-/Hilfstexte */
+.sec-sub, .hero-sub, .obj-loc, .card-loc, .obj-price-note, .val-hint,
+.data-key, .qf-lbl, .fact-lbl, .cal-note, .f-note, .prop-loc, .prop-facts,
+.energy-item span, .obj-note, .c-row span, .card-facts{
+  color:var(--tx-soft) !important;
+}
+/* Kleingedrucktes: nie unter ~7:1 */
+.disclaimer, .legal-note, .val-result-note, small{
+  color:var(--tx-faint) !important;
+}
+/* Gold als Textfarbe aufhellen (Überschriften, Preise, Akzente) */
+.obj-price, .card-price, .val-result-range, .prop-price, .section-title,
+.sec-eyebrow, .obj-type, .card-type, .eyebrow span, .gallery-badge,
+.card-badge, .energy-box h3, .val-q, h2, h3{
+  color:var(--gold-hi) !important;
+}
+/* Überschriften in Marcellus bleiben hell, wo sie weiß sein sollen */
+h1, .obj-title, .card-title, .gc-title, .step-title, .use-title, .prop-title{
+  color:#FFFFFF !important;
+}
+/* Links im Fließtext klar erkennbar */
+.content a, .legal-body a, p a{ color:var(--gold-hi) !important; text-decoration:underline;
+  text-underline-offset:3px; text-decoration-thickness:1px; }
+.content a:hover, .legal-body a:hover, p a:hover{ color:#FFFFFF !important; }
+/* Navigation */
+.nav-links a, nav a, .f-links a, .foot-links a{ color:#D3DBE7 !important; }
+.nav-links a:hover, nav a:hover, .f-links a:hover, .foot-links a:hover{ color:var(--gold-hi) !important; }
+.nav-cta, .nav-cta-link{ color:var(--gold-hi) !important; }
+/* Formulare */
+input, select, textarea{ color:#FFFFFF !important; }
+input::placeholder, textarea::placeholder{ color:#95A2B6 !important; }
+label, .fg label, .val-field label{ color:var(--tx-soft) !important; }
+/* Dunkle Schrift NUR auf goldenen Flächen beibehalten */
+.cta-primary, .cta-btn, .f-send, .val-next, .cal-load, .btn-gold,
+.filter-btn.active, .use-num, .step-num-badge{
+  color:#0B1526 !important;
+}
+.cta-primary:hover, .cta-btn:hover, .f-send:hover, .cal-load:hover, .btn-gold:hover{
+  color:var(--gold-hi) !important;
+}
+/* Textflächen leicht abdunkeln -> Kontrast auch über hellen Fotostellen */
+.content, .legal-body, .obj-head, .val-shell, .cal-shell, .shell{
+  position:relative; z-index:2;
+}
+.content::before, .legal-body::before{
+  content:''; position:absolute; inset:-1.5rem -1.5rem;
+  background:rgba(11,21,38,.42); z-index:-1; border-radius:2px;
+}
+/* Schleier etwas kräftiger, damit Fotos den Text nie stören */
+.atmo-veil{
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(11,21,38,.62), transparent 60%),
+    linear-gradient(180deg, rgba(11,21,38,.86), rgba(11,21,38,.90)) !important;
+}
+/* Schriftglättung für feine Serifen auf dunklem Grund */
+body{ -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+</style>
+
+<style id="contrast-fix2">
+/* Weiße Schrift auf Gold -> dunkles Navy (Lesbarkeit) */
+.btn-main, .btn-primary, .btn-gold, .cta-primary, .cta-btn,
+a[class*="btn"]:not(.btn-outline):not(.btn-line):not(.btn-ghost){
+  color:#0B1526 !important;
+}
+.btn-main:hover, .btn-primary:hover{ color:#E0C892 !important; }
+/* Zurück-Links & Kopfzeilen-Links */
+.h-back, .nav-back, .back-link{ color:#C3CDDD !important; }
+.h-back:hover, .nav-back:hover, .back-link:hover{ color:#E0C892 !important; }
+/* Kontaktzeilen-Links: Browser-Blau überschreiben */
+.contact-row, .contact-row a, .c-row a, .contact-row *{
+  color:#F2F6FC !important; text-decoration:none !important;
+}
+.contact-row a:hover, .c-row a:hover{ color:#E0C892 !important; }
+.contact-row .cr-label, .contact-row small, .c-row span:first-child{
+  color:#C3CDDD !important;
+}
+/* Generell: nicht gestylte Links im Dokument nie Browser-Blau */
+a:not([class]){ color:#E0C892 !important; }
+</style>
+
+<style id="contrast-fix3">
+/* Restliche Grautöne aus dem alten hellen Theme anheben */
+.feat-desc, .feature-desc, .svc-desc, .item-desc, .desc,
+[class*="-desc"], [class*="-text"]:not(.quote-text), [class*="-sub"]{
+  color:#C3CDDD !important;
+}
+</style>
 </head>
 <body>
 
@@ -658,6 +866,10 @@
           </div>
         </div>
       </div>
+
+      <a href="belur-immobilien-angebote.html" style="display:inline-flex;align-items:center;gap:.6rem;margin-top:2rem;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);text-decoration:none;border:1px solid var(--brass);padding:.85rem 1.5rem;transition:all .2s;">
+          Aktuelle Immobilien ansehen →
+        </a>
 
       <div class="panel-promise">
         <p class="pp-text">„Wir melden uns innerhalb von 24 Stunden persönlich bei Ihnen – versprochen."</p>
@@ -859,6 +1071,44 @@
     s.async = true;
     document.body.appendChild(s);
   }
+</script>
+
+<script id="atmo-js">
+(function(){
+  var imgs = ['bg-1.jpg','bg-2.jpg','bg-3.jpg','bg-4.jpg','bg-5.jpg'];
+  var atmo = document.createElement('div'); atmo.className='atmo'; atmo.setAttribute('aria-hidden','true');
+  imgs.forEach(function(src,i){
+    var l=document.createElement('div'); l.className='atmo-layer';
+    l.style.backgroundImage="url('"+src+"')";
+    if(i===0) l.style.opacity=1;
+    atmo.appendChild(l);
+  });
+  var veil=document.createElement('div'); veil.className='atmo-veil'; veil.setAttribute('aria-hidden','true');
+  var cube=document.createElement('div'); cube.className='atmo-cube'; cube.setAttribute('aria-hidden','true');
+  cube.innerHTML='<div class="cube"><div class="face f1"></div><div class="face f2"></div><div class="face f3"></div><div class="face f4"></div><div class="face f5"></div><div class="face f6"></div></div>';
+  document.body.appendChild(atmo);
+  document.body.appendChild(veil);
+  document.body.appendChild(cube);
+  var layers=atmo.querySelectorAll('.atmo-layer');
+  var ticking=false;
+  function update(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    var p=h>0?Math.min(Math.max(window.scrollY/h,0),1):0;
+    var pos=p*(imgs.length-1);
+    var idx=Math.floor(pos);
+    var frac=pos-idx;
+    for(var i=0;i<layers.length;i++){
+      var o=0;
+      if(i===idx) o=1-frac;
+      else if(i===idx+1) o=frac;
+      layers[i].style.opacity=o;
+    }
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){ if(!ticking){ticking=true;requestAnimationFrame(update);} },{passive:true});
+  window.addEventListener('resize',update,{passive:true});
+  update();
+})();
 </script>
 </body>
 </html>
