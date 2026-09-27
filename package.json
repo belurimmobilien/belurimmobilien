@@ -1,0 +1,13 @@
+{
+  "name": "belur-immobilien-website",
+  "private": true,
+  "version": "1.1.0",
+  "description": "Belur Immobilien – Website + Netlify Functions (Lead-Verarbeitung, KI-Ersteinschätzung)",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "latest",
+    "@netlify/blobs": "latest"
+  }
+}

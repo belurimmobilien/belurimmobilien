@@ -1,0 +1,31 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Kurzadressen für Print und Social Media (mit Kampagnen-Kennung für die Auswertung je Kanal).
+# Neue Kampagne: Block kopieren, "from" und utm_campaign anpassen.
+[[redirects]]
+  from = "/bewertung"
+  to = "/belur-bewertung.html?utm_source=social&utm_campaign=bio-link"
+  status = 302
+
+[[redirects]]
+  from = "/filderstadt"
+  to = "/belur-bewertung.html?utm_source=postwurf&utm_campaign=filderstadt-2026-10&plz=70794"
+  status = 302
+
+[[redirects]]
+  from = "/wert"
+  to = "/belur-bewertung.html?utm_source=print&utm_campaign=allgemein"
+  status = 302
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"

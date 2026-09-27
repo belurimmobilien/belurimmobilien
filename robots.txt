@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /netlify/
+
+Sitemap: https://belur-immobilien.de/sitemap.xml
