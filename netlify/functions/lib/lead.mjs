@@ -22,7 +22,7 @@ const MODEL = process.env.BELUR_MODEL || 'claude-opus-5';
 
 // ─────────────────────────────── Auftrags-Speicher ─────────────────────────
 const ID_RE = /^[0-9a-z]{6,12}-[0-9a-f]{32}$/;
-export const store = () => getStore({ name: 'belur-leads', consistency: 'strong' });
+export const store = () => getStore({ name: 'belur-leads' });
 export function newId() {
   const rnd = crypto.getRandomValues(new Uint8Array(16));
   return Date.now().toString(36) + '-' + [...rnd].map((b) => b.toString(16).padStart(2, '0')).join('');
