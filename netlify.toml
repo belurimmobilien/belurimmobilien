@@ -29,3 +29,8 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+[[redirects]]
+  from = "/traumhaus"
+  to = "/ich-finde-ihr-traumhaus.html?utm_source=social&utm_campaign=traumhaus"
+  status = 302
