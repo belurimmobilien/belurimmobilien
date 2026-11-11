@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Renditerechner Immobilie: Mietrendite und Cashflow berechnen | Belur Immobilien</title>
+<meta name="description" content="Kostenloser Renditerechner für Immobilien: Brutto- und Nettomietrendite, Kaufpreisfaktor, Cashflow und Eigenkapitalrendite mit Kaufnebenkosten in Baden-Württemberg berechnen. Ohne Anmeldung.">
+<link rel="canonical" href="https://belur-immobilien.de/renditerechner-immobilie.html">
+<meta property="og:title" content="Renditerechner Immobilie: Mietrendite und Cashflow berechnen">
+<meta property="og:description" content="Kostenloser Renditerechner für Immobilien: Brutto- und Nettomietrendite, Kaufpreisfaktor, Cashflow und Eigenkapitalrendite mit Kaufnebenkosten in Baden-Württemberg berechnen. Ohne Anmeldung.">
+<meta property="og:url" content="https://belur-immobilien.de/renditerechner-immobilie.html">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FAF8F4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/belur.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Renditerechner Immobilie","url":"https://belur-immobilien.de/renditerechner-immobilie.html","description":"Kostenloser Renditerechner für Immobilien: Brutto- und Nettomietrendite, Kaufpreisfaktor, Cashflow und Eigenkapitalrendite mit Kaufnebenkosten in Baden-Württemberg berechnen. Ohne Anmeldung.","applicationCategory":"FinanceApplication","operatingSystem":"Alle","inLanguage":"de","browserRequirements":"JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"provider":{"@type":"RealEstateAgent","name":"Belur Immobilien","url":"https://belur-immobilien.de/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wie berechne ich die Mietrendite einer Immobilie?","acceptedAnswer":{"@type":"Answer","text":"Die Bruttomietrendite ist die Jahreskaltmiete geteilt durch den Kaufpreis. Die Nettomietrendite zieht von der Miete die nicht umlagefähigen Kosten, Rücklagen und Leerstand ab und setzt das Ergebnis ins Verhältnis zur Gesamtinvestition aus Kaufpreis und Kaufnebenkosten."}},{"@type":"Question","name":"Welche Kaufnebenkosten fallen in Baden-Württemberg an?","acceptedAnswer":{"@type":"Answer","text":"Die Grunderwerbsteuer beträgt in Baden-Württemberg 5,0 %. Dazu kommen Notar- und Grundbuchkosten von etwa 1,5 bis 2 % und gegebenenfalls die Maklerprovision. Bei Belur Immobilien sind das je 3,57 % inkl. 19 % MwSt. für den Käufer, bei Wohnungen und Einfamilienhäusern in Verbraucherverkäufen nach der Teilungsregel des § 656c BGB."}},{"@type":"Question","name":"Was ist der Kaufpreisfaktor?","acceptedAnswer":{"@type":"Answer","text":"Der Kaufpreisfaktor ist der Kaufpreis geteilt durch die Jahreskaltmiete. Ein Faktor von 25 bedeutet, dass der Kaufpreis dem Fünfundzwanzigfachen der Jahresmiete entspricht. Je niedriger der Faktor, desto höher die Bruttomietrendite."}},{"@type":"Question","name":"Was sagt der Cashflow aus?","acceptedAnswer":{"@type":"Answer","text":"Der Cashflow zeigt, was nach Abzug von Kosten, Zinsen und Tilgung monatlich übrig bleibt oder zugezahlt werden muss. Die Tilgung ist kein Verlust, sie baut Vermögen auf, belastet aber die laufende Liquidität."}},{"@type":"Question","name":"Berücksichtigt der Rechner Steuern und Abschreibung?","acceptedAnswer":{"@type":"Answer","text":"Nein. Der Rechner zeigt Werte vor Steuern. Abschreibung (AfA), Ihr persönlicher Steuersatz und Zinsänderungen nach Ablauf der Zinsbindung sind nicht enthalten. Für die steuerliche Bewertung sprechen Sie mit Ihrer Steuerberatung."}},{"@type":"Question","name":"Werden meine Eingaben gespeichert?","acceptedAnswer":{"@type":"Answer","text":"Nein. Der Rechner läuft vollständig in Ihrem Browser. Es werden keine Eingaben an einen Server übertragen."}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://belur-immobilien.de/"},{"@type":"ListItem","position":2,"name":"Ratgeber","item":"https://belur-immobilien.de/ratgeber.html"},{"@type":"ListItem","position":3,"name":"Renditerechner","item":"https://belur-immobilien.de/renditerechner-immobilie.html"}]}
+</script>
+<style>
+.rr-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:start}
+@media(max-width:860px){.rr-grid{grid-template-columns:1fr}}
+.rr-grid .form-card h2{font-size:1.2rem;margin:0 0 .6rem}
+.rr-in{position:relative}.rr-in .input{padding-right:3.2rem}.rr-in span{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.9rem;pointer-events:none}
+.rr-kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.rr-kpi{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--surface)}
+.rr-kpi b{display:block;font:600 1.5rem/1.2 var(--serif);color:var(--ink)}.rr-kpi small{color:var(--muted);font-size:.8rem}
+.rr-kpi.main{background:var(--brand);border-color:var(--brand)}.rr-kpi.main b{color:#fff}.rr-kpi.main small{color:rgba(255,255,255,.75)}
+.rr-neg{color:#B42318!important}.rr-pos{color:#1B7F4B!important}
+.rr-tab{width:100%;border-collapse:collapse;font-size:.92rem}.rr-tab td{padding:.45rem 0;border-bottom:1px solid var(--line)}.rr-tab td:last-child{text-align:right;white-space:nowrap}.rr-tab tr.sum td{font-weight:700;border-bottom:2px solid var(--ink)}
+</style>
+</head>
+<body>
+<!-- #sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 4-6 2v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+  <symbol id="i-house" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></symbol>
+  <symbol id="i-flat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/></symbol>
+  <symbol id="i-mfh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-5 9 5v12z"/><path d="M8 12h2M14 12h2M8 16h2M14 16h2"/></symbol>
+  <symbol id="i-land" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 19 5-9 4 5 3-4 6 8z"/><circle cx="17" cy="6" r="2"/></symbol>
+  <symbol id="i-energy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16V11l2-5h10l2 5v5M3 16h18v3H3zM7 19v1M17 19v1M5 11h14"/></symbol>
+  <symbol id="i-tree" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-6M7 16h10l-3-4h2l-4-6-4 6h2z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M5 19l1.5-1.5M17.5 6.5 19 5"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M16 7l3 3M14 9l2 2"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></symbol>
+  <symbol id="i-euro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 6a7 7 0 1 0 0 12M4 10h10M4 14h10"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor"/></symbol>
+  <symbol id="i-tiktok" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.4 2.1 1.8 3.6 4 3.9v3c-1.5 0-2.9-.5-4-1.3v6.6c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6c.3 0 .7 0 1 .1v3.1c-.3-.1-.6-.2-1-.2-1.6 0-3 1.4-3 3s1.4 3 3 3 3-1.4 3-3V3h3z"/></symbol>
+</svg>
+<!-- /sprite -->
+<!-- #header -->
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Belur Immobilien – Startseite"><img src="/assets/img/logo.svg" alt="Belur Immobilien" width="150" height="55"></a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="/#verkaufen">Verkaufen</a>
+      <a href="/belur-immobilien-angebote.html">Angebote</a>
+      <a href="/belur-bewertung.html">Bewertung</a>
+      <a href="/ratgeber.html">Ratgeber</a>
+      <a href="/#ueber-mich">Über mich</a>
+      <a href="/belur-kontakt.html">Kontakt</a>
+    </nav>
+    <div class="header-cta">
+      <a class="header-phone" href="tel:+4917684143342"><svg><use href="#i-phone"/></svg>0176 84143342</a>
+      <a class="btn btn--primary" href="/belur-bewertung.html">Kostenlose Bewertung</a>
+    </div>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menü"><svg><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+<div class="mobile-nav" id="mobile-nav">
+  <a class="mnav-link" href="/#verkaufen">Verkaufen</a>
+  <a class="mnav-link" href="/belur-immobilien-angebote.html">Angebote</a>
+  <a class="mnav-link" href="/belur-bewertung.html">Bewertung</a>
+  <a class="mnav-link" href="/ratgeber.html">Ratgeber</a>
+  <a class="mnav-link" href="/#ueber-mich">Über mich</a>
+  <a class="mnav-link" href="/belur-kontakt.html">Kontakt</a>
+  <div class="btn-row">
+    <a class="btn btn--primary" href="/belur-bewertung.html">Kostenlose Bewertung</a>
+    <a class="btn btn--outline" href="tel:+4917684143342"><svg><use href="#i-phone"/></svg>0176 84143342</a>
+  </div>
+</div>
+<!-- /header -->
+
+<main id="main">
+  <section class="page-head">
+    <div class="wrap wrap--narrow">
+      <ol class="breadcrumb"><li><a href="/">Startseite</a></li><li><a href="/ratgeber.html">Ratgeber</a></li><li aria-current="page">Renditerechner</li></ol>
+      <p class="eyebrow">Kostenloses Tool · Kapitalanlage</p>
+      <h1>Renditerechner für Immobilien: Mietrendite, Cashflow und Eigenkapital berechnen</h1>
+      <p class="lead">Geben Sie Kaufpreis, Miete und Finanzierung ein und sehen Sie sofort Brutto- und Nettomietrendite, Kaufpreisfaktor, Cashflow und Eigenkapitalrendite. Mit den Kaufnebenkosten für Baden-Württemberg vorbelegt, ohne Anmeldung.</p>
+      <p class="small muted">Von Emir Belur · Stand November 2026</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:clamp(24px,4vw,40px)">
+    <div class="wrap">
+      <div class="rr-grid">
+        <div>
+          <div class="form-card"><h2>Objekt und Kaufnebenkosten</h2>
+            <div class="field"><label for="kp">Kaufpreis</label><div class="rr-in"><input class="input" id="kp" type="number" inputmode="decimal" min="0" step="1000" value="300000"><span>€</span></div></div>
+            <div class="field-row"><div class="field"><label for="gr">Grunderwerbsteuer</label><div class="rr-in"><input class="input" id="gr" type="number" inputmode="decimal" min="0" step="0.1" value="5"><span>%</span></div><span class="hint">Baden-Württemberg: 5,0 %</span></div><div class="field"><label for="no">Notar und Grundbuch</label><div class="rr-in"><input class="input" id="no" type="number" inputmode="decimal" min="0" step="0.1" value="2"><span>%</span></div></div></div>
+            <div class="field-row"><div class="field"><label for="mk">Maklerprovision (Käufer)</label><div class="rr-in"><input class="input" id="mk" type="number" inputmode="decimal" min="0" step="0.01" value="3.57"><span>%</span></div><span class="hint">bei Belur: 3,57 % inkl. MwSt.</span></div><div class="field"><label for="sa">Sanierung / Renovierung</label><div class="rr-in"><input class="input" id="sa" type="number" inputmode="decimal" min="0" step="1000" value="0"><span>€</span></div></div></div>
+          </div>
+          <div class="form-card" style="margin-top:20px"><h2>Miete und laufende Kosten</h2>
+            <div class="field-row"><div class="field"><label for="mi">Kaltmiete pro Monat</label><div class="rr-in"><input class="input" id="mi" type="number" inputmode="decimal" min="0" step="10" value="1000"><span>€</span></div></div><div class="field"><label for="fl">Wohnfläche (optional)</label><div class="rr-in"><input class="input" id="fl" type="number" inputmode="decimal" min="0" step="1" value="60"><span>m²</span></div></div></div>
+            <div class="field-row"><div class="field"><label for="nk">Nicht umlagefähige Kosten p. a.</label><div class="rr-in"><input class="input" id="nk" type="number" inputmode="decimal" min="0" step="50" value="1200"><span>€</span></div><span class="hint">z. B. Verwaltung, Instandhaltung laut Hausgeld</span></div><div class="field"><label for="le">Mietausfall / Leerstand</label><div class="rr-in"><input class="input" id="le" type="number" inputmode="decimal" min="0" step="0.5" value="2"><span>%</span></div></div></div>
+            <div class="field-row"><div class="field"><label for="ri">Instandhaltungsrücklage p. a.</label><div class="rr-in"><input class="input" id="ri" type="number" inputmode="decimal" min="0" step="50" value="600"><span>€</span></div></div><div class="field"><label for="ve">Eigene Verwaltungskosten p. a.</label><div class="rr-in"><input class="input" id="ve" type="number" inputmode="decimal" min="0" step="50" value="0"><span>€</span></div></div></div>
+          </div>
+          <div class="form-card" style="margin-top:20px"><h2>Finanzierung</h2>
+            <div class="field-row"><div class="field"><label for="ek">Eigenkapital</label><div class="rr-in"><input class="input" id="ek" type="number" inputmode="decimal" min="0" step="1000" value="80000"><span>€</span></div></div><div class="field"><label for="zi">Zins p. a.</label><div class="rr-in"><input class="input" id="zi" type="number" inputmode="decimal" min="0" step="0.05" value="3.6"><span>%</span></div></div></div>
+            <div class="field-row"><div class="field"><label for="ti">Tilgung p. a.</label><div class="rr-in"><input class="input" id="ti" type="number" inputmode="decimal" min="0" step="0.1" value="2"><span>%</span></div></div><div class="field"><label for="ws">Wertsteigerung p. a. (optional)</label><div class="rr-in"><input class="input" id="ws" type="number" inputmode="decimal" min="0" step="0.1" value="0"><span>%</span></div></div></div>
+          </div>
+        </div>
+        <div style="position:sticky;top:96px" id="ergebnis" aria-live="polite">
+          <div class="rr-kpis">
+            <div class="rr-kpi main"><b id="o_br">-</b><small>Bruttomietrendite</small></div>
+            <div class="rr-kpi main"><b id="o_nr">-</b><small>Nettomietrendite</small></div>
+            <div class="rr-kpi"><b id="o_fa">-</b><small>Kaufpreisfaktor</small></div>
+            <div class="rr-kpi"><b id="o_cf">-</b><small>Cashflow pro Monat (vor Steuern)</small></div>
+            <div class="rr-kpi"><b id="o_er">-</b><small>Eigenkapitalrendite p. a.</small></div>
+            <div class="rr-kpi"><b id="o_pm">-</b><small>Kaufpreis pro m²</small></div>
+          </div>
+          <div class="form-card"><h2>Gesamtinvestition</h2>
+            <table class="rr-tab">
+              <tr><td>Kaufpreis</td><td id="t_kp"></td></tr><tr><td>Grunderwerbsteuer</td><td id="t_gr"></td></tr><tr><td>Notar und Grundbuch</td><td id="t_no"></td></tr><tr><td>Maklerprovision</td><td id="t_mk"></td></tr><tr><td>Sanierung</td><td id="t_sa"></td></tr>
+              <tr class="sum"><td>Gesamtinvestition</td><td id="t_ge"></td></tr><tr><td>Eigenkapital</td><td id="t_ek"></td></tr><tr><td>Darlehen</td><td id="t_da"></td></tr>
+            </table>
+          </div>
+          <div class="form-card" style="margin-top:20px"><h2>Jahresrechnung</h2>
+            <table class="rr-tab">
+              <tr><td>Kaltmiete (12 Monate)</td><td id="j_mi"></td></tr><tr><td>Mietausfall</td><td id="j_le"></td></tr><tr><td>Nicht umlagefähige Kosten</td><td id="j_nk"></td></tr><tr><td>Instandhaltungsrücklage</td><td id="j_ri"></td></tr><tr><td>Verwaltung</td><td id="j_ve"></td></tr>
+              <tr class="sum"><td>Nettoertrag vor Finanzierung</td><td id="j_ne"></td></tr><tr><td>Zinsen (1. Jahr)</td><td id="j_zi"></td></tr><tr><td>Tilgung (1. Jahr)</td><td id="j_ti"></td></tr>
+              <tr class="sum"><td>Überschuss nach Kapitaldienst</td><td id="j_cf"></td></tr>
+            </table>
+            <p class="small muted" id="o_note" style="margin:.8rem 0 0"></p>
+          </div>
+        </div>
+      </div>
+      <p class="small muted" style="margin-top:1.2rem">Orientierungsrechnung ohne Gewähr, vor Steuern. Abschreibung (AfA), persönlicher Steuersatz und Zinsänderungen nach der Zinsbindung sind nicht berücksichtigt. Ihre Eingaben werden nicht gespeichert und nicht übertragen.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <article class="wrap wrap--narrow prose">
+      <h2 id="kennzahlen">Die Kennzahlen im Überblick</h2>
+      <table class="data-table">
+        <tr><th>Bruttomietrendite</th><td>Jahreskaltmiete ÷ Kaufpreis. Schnelle Vergleichszahl ohne Kosten.</td></tr>
+        <tr><th>Nettomietrendite</th><td>(Jahreskaltmiete − nicht umlagefähige Kosten, Rücklage, Leerstand) ÷ (Kaufpreis + Kaufnebenkosten). Realistischer, weil sie Nebenkosten und Bewirtschaftung einbezieht.</td></tr>
+        <tr><th>Kaufpreisfaktor</th><td>Kaufpreis ÷ Jahreskaltmiete. Je niedriger, desto höher die Bruttorendite.</td></tr>
+        <tr><th>Cashflow</th><td>Nettoertrag minus Zinsen und Tilgung. Zeigt, ob die Immobilie sich selbst trägt.</td></tr>
+        <tr><th>Eigenkapitalrendite</th><td>Jahresüberschuss (plus optional Wertsteigerung) ÷ eingesetztes Eigenkapital. Zeigt den Hebel der Finanzierung.</td></tr>
+      </table>
+
+      <h2 id="nebenkosten">Kaufnebenkosten in Baden-Württemberg</h2>
+      <p>Beim Kauf kommen zum Kaufpreis rund 10 % Nebenkosten hinzu. In Baden-Württemberg beträgt die <strong>Grunderwerbsteuer 5,0 %</strong>, für Notar und Grundbuch sind etwa 1,5 bis 2 % üblich. Dazu kommt die Maklerprovision, bei Belur Immobilien <strong>3,57 % inkl. MwSt.</strong> für den Käufer. Weil die Nebenkosten die Gesamtinvestition erhöhen, liegt die Nettomietrendite immer unter der Bruttomietrendite. Mehr dazu in unserem <a href="/ratgeber-maklerprovision.html">Ratgeber zur Maklerprovision</a>.</p>
+
+      <h2 id="beispiel">Rechenbeispiel</h2>
+      <p>Eine Wohnung für 300.000 € bringt 1.000 € Kaltmiete im Monat, also 12.000 € im Jahr. Die <strong>Bruttomietrendite</strong> beträgt 4,0 %, der Kaufpreisfaktor 25. Mit 10,57 % Kaufnebenkosten liegt die Gesamtinvestition bei rund 331.700 €. Nach Abzug von 1.200 € nicht umlagefähigen Kosten, 600 € Rücklage und 2 % Leerstand bleiben etwa 9.960 € Nettoertrag, die <strong>Nettomietrendite</strong> beträgt damit rund 3,0 %. Liegt der Darlehenszins höher als die Nettorendite, verbessert Fremdkapital die Rendite nicht. Dann braucht es mehr Eigenkapital, damit sich die Immobilie trägt.</p>
+
+      <h2 id="tipps">Worauf Sie bei der Rendite achten sollten</h2>
+      <ul>
+        <li><strong>Lage und Miete prüfen:</strong> Die ortsübliche Vergleichsmiete entscheidet, ob die angesetzte Miete realistisch ist.</li>
+        <li><strong>Hausgeld genau lesen:</strong> Nur der nicht umlagefähige Teil mindert die Rendite.</li>
+        <li><strong>Instandhaltung einplanen:</strong> Dach, Heizung und Fassade können Rücklagen deutlich übersteigen. Der <a href="/ratgeber-energieausweis-verkauf.html">Energieausweis</a> gibt einen Hinweis auf den Zustand.</li>
+        <li><strong>Zinsbindung beachten:</strong> Nach Ablauf kann der Zins höher liegen.</li>
+        <li><strong>Objektwert einordnen:</strong> Neben der Rendite zählt der Marktwert, den ich nach <a href="/belur-bewertung.html">Vergleichs-, Ertrags- und Sachwertverfahren</a> ermittle.</li>
+      </ul>
+
+      <h2 id="faq">Häufige Fragen zum Renditerechner</h2>
+      <h3>Wie berechne ich die Mietrendite einer Immobilie?</h3>
+      <p>Die Bruttomietrendite ist die Jahreskaltmiete geteilt durch den Kaufpreis. Die Nettomietrendite zieht von der Miete die nicht umlagefähigen Kosten, Rücklagen und Leerstand ab und setzt das Ergebnis ins Verhältnis zur Gesamtinvestition aus Kaufpreis und Kaufnebenkosten.</p>
+      <h3>Welche Kaufnebenkosten fallen in Baden-Württemberg an?</h3>
+      <p>Die Grunderwerbsteuer beträgt in Baden-Württemberg 5,0 %. Dazu kommen Notar- und Grundbuchkosten von etwa 1,5 bis 2 % und gegebenenfalls die Maklerprovision. Bei Belur Immobilien sind das je 3,57 % inkl. 19 % MwSt. für den Käufer, bei Wohnungen und Einfamilienhäusern in Verbraucherverkäufen nach der Teilungsregel des § 656c BGB.</p>
+      <h3>Was ist der Kaufpreisfaktor?</h3>
+      <p>Der Kaufpreisfaktor ist der Kaufpreis geteilt durch die Jahreskaltmiete. Ein Faktor von 25 bedeutet, dass der Kaufpreis dem Fünfundzwanzigfachen der Jahresmiete entspricht. Je niedriger der Faktor, desto höher die Bruttomietrendite.</p>
+      <h3>Was sagt der Cashflow aus?</h3>
+      <p>Der Cashflow zeigt, was nach Abzug von Kosten, Zinsen und Tilgung monatlich übrig bleibt oder zugezahlt werden muss. Die Tilgung ist kein Verlust, sie baut Vermögen auf, belastet aber die laufende Liquidität.</p>
+      <h3>Berücksichtigt der Rechner Steuern und Abschreibung?</h3>
+      <p>Nein. Der Rechner zeigt Werte vor Steuern. Abschreibung (AfA), Ihr persönlicher Steuersatz und Zinsänderungen nach Ablauf der Zinsbindung sind nicht enthalten. Für die steuerliche Bewertung sprechen Sie mit Ihrer Steuerberatung.</p>
+      <h3>Werden meine Eingaben gespeichert?</h3>
+      <p>Nein. Der Rechner läuft vollständig in Ihrem Browser. Es werden keine Eingaben an einen Server übertragen.</p>
+
+      <div class="cta-band" style="margin:3rem 0 1rem">
+        <div>
+          <h2 style="font-size:1.6rem">Passende Kapitalanlage gesucht?</h2>
+          <p style="margin:0">Ich suche Immobilien für Sie in der Region Stuttgart, Esslingen, Göppingen und im Ostalbkreis und rechne die Rendite mit Ihnen durch.</p>
+        </div>
+        <div class="btn-row"><a class="btn btn--light" href="/ich-finde-ihr-traumhaus.html">Suchauftrag erteilen</a><a class="btn btn--light" href="/belur-immobilien-angebote.html">Aktuelle Angebote</a></div>
+      </div>
+      <p class="disclaimer">Der Renditerechner dient der Orientierung und ersetzt keine Steuer-, Rechts- oder Finanzierungsberatung. Angaben ohne Gewähr, Stand November 2026.</p>
+    </article>
+  </section>
+</main>
+
+<!-- #footer -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/assets/img/logo-hell.svg" alt="Belur Immobilien" width="160" height="58" loading="lazy">
+        <p>Unabhängiger Immobilienmakler für die Region Stuttgart, Esslingen, Göppingen und den Ostalbkreis.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/immobelur/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-insta"/></svg></a>
+          <a href="https://www.tiktok.com/@belur.immobilien" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#i-tiktok"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Leistungen</h4><ul><li><a href="/#verkaufen">Immobilie verkaufen</a></li><li><a href="/belur-bewertung.html">Kostenlose Wertermittlung</a></li><li><a href="/belur-immobilien-angebote.html">Aktuelle Angebote</a></li><li><a href="/ich-finde-ihr-traumhaus.html">Suchauftrag: Ich finde Ihr Traumhaus</a></li><li><a href="/ratgeber.html">Ratgeber</a></li></ul></div>
+      <div><h4>Regionen</h4><ul><li><a href="/immobilie-verkaufen-schwaebisch-gmuend.html">Schwäbisch Gmünd</a></li><li><a href="/immobilie-verkaufen-aalen.html">Aalen</a></li><li><a href="/immobilie-verkaufen-heubach.html">Heubach</a></li><li><a href="/immobilie-verkaufen-stuttgart.html">Stuttgart</a></li><li><a href="/immobilie-verkaufen-esslingen.html">Esslingen</a></li><li><a href="/immobilie-verkaufen-kirchheim-unter-teck.html">Kirchheim unter Teck</a></li><li><a href="/immobilie-verkaufen-nuertingen.html">Nürtingen</a></li><li><a href="/immobilie-verkaufen-filderstadt.html">Filderstadt</a></li><li><a href="/immobilie-verkaufen-goeppingen.html">Göppingen</a></li><li><a href="/immobilie-verkaufen-schorndorf.html">Schorndorf</a></li><li><a href="/immobilie-verkaufen-waiblingen.html">Waiblingen</a></li></ul></div>
+      <div><h4>Kontakt</h4><ul><li><a href="tel:+4917684143342">0176 84143342</a></li><li><a href="mailto:info@belur-immobilien.de">info@belur-immobilien.de</a></li><li>Rebhuhnweg 11<br>73529 Schwäbisch Gmünd</li><li><a href="/belur-kontakt.html#termin">Termin online buchen</a></li><li><a href="https://g.page/r/CYSWrXEdDPYgEBI/review" target="_blank" rel="noopener">Auf Google bewerten</a></li></ul></div>
+      <div><h4>Rechtliches</h4><ul><li><a href="/belur-impressum.html">Impressum</a></li><li><a href="/belur-datenschutz.html">Datenschutz</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Belur Immobilien · Emiralp Belur</span><span>Immobilienmakler mit Erlaubnis nach § 34c GewO</span></div>
+  </div>
+</footer>
+<!-- /footer -->
+<script src="/assets/js/site.js"></script>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)},nf=new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR',maximumFractionDigits:0});
+function eur(n){return nf.format(isFinite(n)?n:0)}
+function pct(n){return (isFinite(n)?n:0).toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2})+' %'}
+function v(i){return parseFloat($(i).value)||0}
+function calc(){
+ var kp=v('kp'),gr=kp*v('gr')/100,no=kp*v('no')/100,mk=kp*v('mk')/100,sa=v('sa');
+ var ge=kp+gr+no+mk+sa,ek=Math.min(v('ek'),ge),da=Math.max(ge-ek,0);
+ var mj=v('mi')*12,le=mj*v('le')/100,nk=v('nk'),ri=v('ri'),ve=v('ve'),ne=mj-le-nk-ri-ve;
+ var zi=da*v('zi')/100,ti=da*v('ti')/100,cf=ne-zi-ti;
+ var m={t_kp:eur(kp),t_gr:eur(gr),t_no:eur(no),t_mk:eur(mk),t_sa:eur(sa),t_ge:eur(ge),t_ek:eur(ek),t_da:eur(da),j_mi:eur(mj),j_le:'-'+eur(le),j_nk:'-'+eur(nk),j_ri:'-'+eur(ri),j_ve:'-'+eur(ve),j_ne:eur(ne),j_zi:'-'+eur(zi),j_ti:'-'+eur(ti),j_cf:eur(cf)};
+ for(var k in m)$(k).textContent=m[k];
+ $('j_cf').className=cf<0?'rr-neg':'rr-pos';
+ $('o_br').textContent=kp?pct(mj/kp*100):'-';
+ $('o_nr').textContent=ge?pct(ne/ge*100):'-';
+ $('o_fa').textContent=mj?(kp/mj).toLocaleString('de-DE',{maximumFractionDigits:1})+'x':'-';
+ $('o_pm').textContent=v('fl')?eur(kp/v('fl')):'-';
+ $('o_cf').textContent=eur(cf/12);$('o_cf').className=cf<0?'rr-neg':'rr-pos';
+ $('o_er').textContent=ek?pct((cf+kp*v('ws')/100)/ek*100):'-';
+ $('o_note').textContent=da?'Monatliche Rate: '+eur((zi+ti)/12)+'. Der Cashflow enthält Zins und Tilgung. Die Tilgung baut Vermögen auf und ist kein Verlust.':'Ohne Darlehen: Vollfinanzierung mit Eigenkapital.';
+}
+var ins=document.querySelectorAll('.rr-grid input');for(var i=0;i<ins.length;i++)ins[i].addEventListener('input',calc);
+calc();
+})();
+</script>
+</body>
+</html>
