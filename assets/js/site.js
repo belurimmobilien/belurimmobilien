@@ -120,3 +120,84 @@
     });
   }
 })();
+
+/* Google Ads Conversion-Messung – lädt erst nach Einwilligung (TDDDG § 25).
+   Ohne Zustimmung wird weder das Google-Tag geladen noch eine Verbindung zu Google aufgebaut. */
+(function () {
+  var AW = 'AW-18055959177';
+  var LABEL = { formular: '8byVCL68lrkdEIml4KFD', telefon: 's3C_CMG8lrkdEIml4KFD' };
+  var KEY = 'belur-einwilligung-ads';
+  var geladen = false;
+
+  function lesen() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function speichern(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+
+  function laden() {
+    if (geladen) return;
+    geladen = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', AW);
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + AW;
+    document.head.appendChild(s);
+  }
+
+  // Wird von lead.js nach erfolgreichem Absenden und beim Klick auf Telefonnummern aufgerufen.
+  window.belurAdsEvent = function (art) {
+    if (lesen() !== 'ja' || !window.gtag || !LABEL[art]) return;
+    window.gtag('event', 'conversion', { send_to: AW + '/' + LABEL[art] });
+  };
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="tel:"]');
+    if (a) window.belurAdsEvent('telefon');
+  });
+
+  function banner() {
+    var st = document.createElement('style');
+    st.textContent = '.cb{position:fixed;left:16px;right:16px;bottom:16px;max-width:560px;margin:0 auto;background:#FBFAF7;color:#111;border:1px solid rgba(17,17,17,.18);box-shadow:0 8px 30px rgba(0,0,0,.18);padding:20px;z-index:9999;font:14px/1.5 "Segoe UI",Arial,sans-serif}' +
+      '.cb p{margin:0 0 14px}.cb a{color:#8A7447}.cb div{display:flex;gap:10px;flex-wrap:wrap}' +
+      '.cb button{flex:1;min-width:140px;padding:12px 16px;font:inherit;font-weight:600;cursor:pointer;border:1px solid #111;background:#111;color:#fff}' +
+      '.cb button.n{background:#fff;color:#111}';
+    document.head.appendChild(st);
+    var b = document.createElement('div');
+    b.className = 'cb';
+    b.setAttribute('role', 'dialog');
+    b.setAttribute('aria-label', 'Datenschutz-Einstellungen');
+    b.innerHTML = '<p>Wir messen mit Google Ads, ob unsere Anzeigen zu Anfragen führen. Dafür wird ein Google-Tag geladen und Daten werden an Google übermittelt, aber nur mit Ihrer Einwilligung. Details in der <a href="/belur-datenschutz.html#ads">Datenschutzerklärung</a>.</p>' +
+      '<div><button type="button" class="n" data-c="nein">Ablehnen</button><button type="button" data-c="ja">Zustimmen</button></div>';
+    b.addEventListener('click', function (e) {
+      var c = e.target.getAttribute && e.target.getAttribute('data-c');
+      if (!c) return;
+      speichern(c);
+      b.remove();
+      if (c === 'ja') laden();
+    });
+    document.body.appendChild(b);
+  }
+
+  function einstellungsLink() {
+    var f = document.querySelector('footer');
+    if (!f) return;
+    var a = document.createElement('a');
+    a.href = '#';
+    a.textContent = 'Datenschutz-Einstellungen';
+    a.style.cssText = 'display:inline-block;margin:12px 0 0;font-size:13px;color:inherit;opacity:.8';
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      try { localStorage.removeItem(KEY); } catch (x) {}
+      if (!document.querySelector('.cb')) banner();
+    });
+    f.appendChild(a);
+  }
+
+  function start() {
+    einstellungsLink();
+    var v = lesen();
+    if (v === 'ja') laden(); else if (v !== 'nein') banner();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+})();
