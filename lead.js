@@ -59,6 +59,7 @@
         body: body.toString()
       });
       if (!res.ok) throw new Error('HTTP ' + res.status);
+      if (window.belurAdsEvent) window.belurAdsEvent('formular');
       return true;
     } catch (err) {
       console.error('Lead-Versand fehlgeschlagen:', err);
